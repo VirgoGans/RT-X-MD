@@ -1,4 +1,4 @@
-let https = require('axios')
+import https from 'axios'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) throw `contoh:\n ${usedPrefix}${command} https://vm.tiktok.com/ZGJAmhSrp/`
 let tio = (await https.get(API('males', '/tiktok', { url: args[0] } ))).data;
@@ -11,4 +11,4 @@ handler.help = ['tiktok'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 handler.command = /^(tiktok|ttdl|tt|tiktokdl|tiktoknowm)$/i
 handler.limit = true
-module.exports = handler
+export default handler
